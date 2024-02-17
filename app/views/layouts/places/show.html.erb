@@ -2,8 +2,22 @@
 
 <h1><%= @places["name"] %></h1>
 
-<h3>Posts</h3>
+<h2>Travel Journal</h2>
 
+<ul>
+  <% for entry in @entries %>
+    <li>
+      <h3><%= entry["title"] %></h3>
+      <p><%= entry["description"] %></p>
+      <p><%= entry["posted_on"] %></p>
+    </li>
+  <% end %>
+</ul>
+
+
+<p>
+  <a href="/entries/new">New Travel Journal Entry</a>
+</p>
 
 <p>
   <a href="/places/new">New Place</a>

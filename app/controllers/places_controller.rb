@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+    @entries = Entry.all
     render :template => "layouts/places/index"
   end
 
@@ -22,6 +23,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @entries = Entry.all 
     # find a Place
     @places = Place.find_by({"id" => params["id"]})
     #@contacts = Contact.where({"company_id" => @company["id"]})
