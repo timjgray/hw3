@@ -1,6 +1,7 @@
 <!-- Places details page -->
 
 <h1><%= @places["name"] %></h1>
+<h1><%= @places["id"] %></h1>
 
 <h2>Travel Journal</h2>
 
@@ -8,11 +9,13 @@
   <% for entry in @entries %>
     <li>
       <h3><%= entry["title"] %></h3>
+      <p><%= entry["place_id"] %></p>
       <p><%= entry["description"] %></p>
       <p><%= entry["posted_on"] %></p>
     </li>
   <% end %>
 </ul>
+
 
 
 <p>

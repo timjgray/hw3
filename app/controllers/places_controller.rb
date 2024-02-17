@@ -16,18 +16,20 @@ class PlacesController < ApplicationController
     @places = Place.new
     # assign user-entered form data to Places
     @places["name"] = params["name"]
-    # save Company row
+    # save 
     @places.save
     # redirect user
     redirect_to "/places"
   end
 
   def show
-    @entries = Entry.all 
-    # find a Place
+    @entries = Entry.all
     @places = Place.find_by({"id" => params["id"]})
-    #@contacts = Contact.where({"company_id" => @company["id"]})
-    # render companies/show view with details about Company
+    #@entries = Entry.where({"place_id" => @places["id"]})
+    #@entries = Entry.all 
+    # find a Place
+    #@places = Place.find_by({"id" => params["id"]})
+    #@entries = Entry.find_by({"id" => @places["id"]})
     render :template => "layouts/places/show"
   end
 
