@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
   end
 
   def new
+    @places = Place.find_by({ "id" => params["place_id"] })
     render :template => "layouts/entries/new"
   end
   def create
@@ -19,7 +20,8 @@ class EntriesController < ApplicationController
 
     @entries.save
     # redirect user
-    redirect_to "/places"
+    redirect_to "/places/#{@entries["place_id"]}"
+
   end
 
 end
